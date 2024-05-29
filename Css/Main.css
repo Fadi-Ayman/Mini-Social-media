@@ -1,0 +1,239 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 200vh;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  border-bottom-left-radius: 10px ;
+  border-bottom-right-radius: 10px ;
+}
+
+.home-profile{
+  height: 100%;
+}
+
+.profile-page{
+  cursor: pointer;
+}
+
+.btns{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns:hover{
+  background-color: rgba(0, 0, 0, 0.192);
+}
+
+main{
+  width: 100%;
+}
+
+.card{
+  min-width: 100%;
+}
+
+.card-header{
+  height  : 55px;
+}
+
+.profile-img{
+  width: 45px;
+  height: 45px;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+
+.card-img-top{
+  height: 320px;
+  padding: 0px 1px;
+  border-radius: 0px;
+}
+
+.comment-tags{
+  border-top: 1px solid gray;
+}
+#post-body{
+  cursor: pointer;
+}
+
+#new-post-btn{
+  position: fixed;
+  width: 30px;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  z-index: 5;
+}
+
+/* Second Page */
+
+.comments-addComment {
+  background-color: rgba(128, 128, 128, 0.233);
+  width: 100%;
+}
+
+.comment{
+  border-top: 1px solid rgba(128, 128, 128, 0.541);
+}
+
+.comment-auther{
+  margin-left: -0.5rem;
+}
+
+.add-comment-section{
+  border-top: 1px solid black;
+  padding-top: 1rem;
+}
+
+.comment-input-container{
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+
+#Send-comment{
+  position: absolute;
+  right: 0px;
+  height: 94%;
+}
+
+
+.alert-box{
+  position: fixed;
+  bottom: 2%;
+  left: 1%;
+  z-index: 2;
+  width: 50%;
+}
+
+#liveAlertPlaceholder{
+  z-index: 99999;
+}
+
+.profile-details-img{
+  border-radius: 50%;
+  border: 3px solid;
+}
+
+#logout-btn{
+  font-size: 14px !important;
+  padding: 8px;
+  margin-left: 20px !important;
+}
+
+@media (min-width:980px){
+
+  .owner-title{
+    width: 50%;
+  }
+
+  main{
+    width: 60%;
+  }
+
+  nav {
+    width: 60%;
+  }
+
+
+  #new-post-btn{
+    position: fixed;
+    bottom: 7%;
+    right: 15%;
+    width: 55px;
+  }
+
+  .profile-info{
+    width: 60%;
+  }
+
+  .alert-box{
+    width: 25%;
+  }
+  
+
+}
+
+@media (max-width:400px){
+  #logout-btn{
+    font-size: 14px !important;
+    padding: 8px;
+    margin: 0 !important;
+  }
+
+  body .container{
+    gap: 10px !important;
+  }
+
+
+  .container nav{
+    margin-bottom: 10px !important;
+    padding: 10px 15px !important;
+  }
+
+  .profile-name{
+    font-size: 15px !important;
+    font-weight: bold;
+    margin-right: 9px !important;
+  }
+
+  .btns {
+    padding: 4px !important;
+    font-size: 14px !important;
+  }
+
+  .profile-info{
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .profile-details-img{
+    width: 100px !important ;
+    height: 100px !important ;
+  }
+
+  .infoo{
+    font-size: 10px !important;
+  }
+
+  .profile-info{
+    padding: 10px  !important ;  }
+
+  .p-counts{
+    text-align: center;
+    font-size: 15px !important;
+    flex-wrap: wrap;
+  }
+
+  .p-counts small{
+    display: block !important;
+    font-size: 10px !important;
+  }
+  .logout-profilePic{
+    gap: 30px;
+  }
+
+  .login-register :first-child,.login-register :last-child {
+    padding: 5px !important;
+  }
+
+  .card-img-top{
+    height: 200px;
+  }
+}
+
+
+

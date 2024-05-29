@@ -5,7 +5,7 @@
 }
 
 body{
-  min-height: 200vh;
+  height: fit-content;
   position: relative;
 }
 
@@ -21,6 +21,10 @@ nav {
   height: 100%;
 }
 
+.profile-info{
+  width: 100%;
+}
+
 .profile-page{
   cursor: pointer;
 }
@@ -33,7 +37,7 @@ nav {
 }
 
 .btns:hover{
-  background-color: rgba(0, 0, 0, 0.192);
+  background-color: rgba(47, 47, 47, 0.105);
 }
 
 main{
@@ -131,7 +135,7 @@ main{
 #logout-btn{
   font-size: 14px !important;
   padding: 8px;
-  margin-left: 20px !important;
+  margin-left: 10px !important;
 }
 
 @media (min-width:980px){
@@ -146,6 +150,11 @@ main{
 
   nav {
     width: 60%;
+  }
+
+  .profile-details-img{
+    width: 150px !important ;
+    height: 150px !important ;
   }
 
 

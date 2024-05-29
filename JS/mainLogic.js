@@ -756,20 +756,3 @@ export function setupUi(){
 
 
 
-// if (window.location.pathname == profilePagePathname){
-//   let urlParams = new URLSearchParams(window.location.search)
-//   let userId = urlParams.get('userId')
-//   queryParamValue =  userId
-//   USERID = userId
-//   url = `${baseUrl}/users/${queryParamValue}/posts`
-// }else if(window.location.pathname == postPagePathname){
-//   // Get Post Id From URL
-//   const urlSearchParams = new URLSearchParams(window.location.search)
-//   postId = urlSearchParams.get('postId')
-//   queryParamValue =  postId
-//   USERID = postId
-//   url = `${baseUrl}/posts/${queryParamValue}`
-
-// }else{
-//   url = `${baseUrl}/posts?page=${queryParamValue}`
-// }

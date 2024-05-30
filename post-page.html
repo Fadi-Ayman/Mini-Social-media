@@ -8,7 +8,7 @@
 
   <!-- Axios lib -->
   <script src="./node_modules/axios/dist/axios.min.js"></script>
-<!-- Stylesheets -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="Css/Main.css" />
 </head>
@@ -17,9 +17,9 @@
 
 <body class="bg-body-secondary">
 
-    <!-- Alerts -->
+  <!-- Alerts -->
 
-    <div class="alert-box fade show " id="liveAlertPlaceholder"></div>
+  <div class="alert-box fade show " id="liveAlertPlaceholder"></div>
 
   <!-- All  Modals -->
 
@@ -84,12 +84,12 @@
             <!-- Username Input -->
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">UserName:</label>
-              <input type="text" class="form-control" id="login-username" required  />
+              <input type="text" class="form-control" id="login-username" required />
             </div>
             <!-- PassWord Input -->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Password:</label>
-              <input  type="password" class="form-control" id="login-password" required />
+              <input type="password" class="form-control" id="login-password" required />
             </div>
           </form>
         </div>
@@ -102,65 +102,65 @@
     </div>
   </div>
 
-    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <!-- Modal Title -->
-            <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <!-- Post Title Input -->
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Title:</label>
-                <input type="text" class="form-control" id="edit-post-title-inp" required />
-              </div>
-              <!-- Post Body Input -->
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Body:</label>
-                <input type="text" class="form-control" id="edit-post-body-inp" required />
-              </div>
-              <!-- Post Image Input -->
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Upload Image:</label>
-                <input type="file" class="form-control" id="edit-post-image-inp" required />
-              </div>
-              <input type="hidden" id="edit-post-id-inp">
-            </form>
-          </div>
-          <div class="modal-footer">
-            <!-- Create New Post btns -->
-            <button id="edit-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close </button>
-            <button id="edit-post-edit" type="button" class="btn btn-primary  "> Save Changes </button>
-          </div>
+  <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- Modal Title -->
+          <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- Post Title Input -->
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="edit-post-title-inp" required />
+            </div>
+            <!-- Post Body Input -->
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Body:</label>
+              <input type="text" class="form-control" id="edit-post-body-inp" required />
+            </div>
+            <!-- Post Image Input -->
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Upload Image:</label>
+              <input type="file" class="form-control" id="edit-post-image-inp" required />
+            </div>
+            <input type="hidden" id="edit-post-id-inp">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- Create New Post btns -->
+          <button id="edit-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close </button>
+          <button id="edit-post-edit" type="button" class="btn btn-primary  "> Save Changes </button>
         </div>
       </div>
     </div>
-  
-    <!-- Delete Modal -->
-    <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <!-- Modal title -->
-            <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Are You Sure ?
-          </div>
-          <input type="hidden" id="delete-post-id-inp">
-          <div class="modal-footer">
-            <button id="delete-post-close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button id="delete-post-delete" type="button" class="btn btn-danger">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 
-      <!-- Edit Modals  -->
+  <!-- Delete Modal -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- Modal title -->
+          <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are You Sure ?
+        </div>
+        <input type="hidden" id="delete-post-id-inp">
+        <div class="modal-footer">
+          <button id="delete-post-close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="delete-post-delete" type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modals  -->
 
 
 
@@ -172,21 +172,23 @@
       <!-- Home And Profile -->
       <div class="home-profile d-flex gap-0 p-lg-2 justify-content-between  align-items-center">
         <a class="btns fs-6 text-decoration-none text-black p-2 rounded-2" href="index.html">Home</a>
-        <a  id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2"  >Profile</a>
+        <a id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2">Profile</a>
       </div>
 
       <!-- Login And Register Btns -->
       <div class="login-register d-flex gap-3">
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"data-bs-whatever="@mdo"> Login </button>
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"data-bs-whatever="@mdo"> Register </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"
+          data-bs-whatever="@mdo"> Login </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"
+          data-bs-whatever="@mdo"> Register </button>
       </div>
 
       <!-- Profile Picture And Logout Btn -->
-        <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
-          <img class="profile-img" src="images/profile1.jpg" >
-          <p class="m-0 fs-5 profile-name" > @Fady </p>
-          <button id="logout-btn" class="btn btn-danger  " >Logout</button>
-        </div>
+      <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
+        <img class="profile-img" src="images/profile1.jpg">
+        <p class="m-0 fs-5 profile-name"> @Fady </p>
+        <button id="logout-btn" class="btn btn-danger  ">Logout</button>
+      </div>
 
     </nav>
     <!-- End Of NavBar  -->
@@ -207,24 +209,24 @@
   <!-- End Of Container  -->
 
   <script type="module" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="./JS/mainLogic.js" ></script>
+  <script type="module" src="./JS/mainLogic.js"></script>
   <script type="module" src="./JS/post.js"></script>
-  
+
 </body>
 
 <script>
-    // This Function Will Duplicated in all Html Pages
-    // Get Post Details 
-  function getPostDetails(postObject,btnClicked){
+  // This Function Will Duplicated in all Html Pages
+  // Get Post Details 
+  function getPostDetails(postObject, btnClicked) {
     let post = JSON.parse(decodeURIComponent(postObject))
     let type = btnClicked.dataset.type
     let deleteModalInp = document.getElementById('delete-post-id-inp')
     let editModalInp = document.getElementById('edit-post-id-inp')
 
-    if (type == 'delete'){
+    if (type == 'delete') {
       deleteModalInp.value = post.id
 
-    }else{
+    } else {
       let editTitleInp = document.getElementById('edit-post-title-inp')
       let editBodyInp = document.getElementById('edit-post-body-inp')
 
@@ -234,78 +236,78 @@
     }
   }
 
-// Add New Comment 
-async function newComment(PostId,Btn){
-  // Vars
-  let url = `https://tarmeezacademy.com/api/v1/posts/${PostId}/comments`
-  let commentInpValue = Btn.previousElementSibling.value
-  let token = localStorage.getItem('token')
+  // Add New Comment 
+  async function newComment(PostId, Btn) {
+    // Vars
+    let url = `https://tarmeezacademy.com/api/v1/posts/${PostId}/comments`
+    let commentInpValue = Btn.previousElementSibling.value
+    let token = localStorage.getItem('token')
 
-  let params = {
-    'body' : commentInpValue
-  }
+    let params = {
+      'body': commentInpValue
+    }
 
-  let config = {
-    "headers" : {
-      'Content-Type' : 'application/json',
-      'Authorization': `Bearer ${token}`
+    let config = {
+      "headers": {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    }
+
+    try {
+      // Sending Request
+      let response = await axios.post(url, params, config)
+      showAlert('The Comment Added Successfully', 'success')
+
+      setTimeout(() => {
+        window.location.reload()
+      }, 900);
+
+    } catch (error) {
+      let msg = error.response.data.message
+      showAlert(msg, 'danger')
     }
   }
 
-  try {
-  // Sending Request
-  let response = await axios.post(url,params,config)
-  showAlert('The Comment Added Successfully','success')
+
+  function goToProfilePage(authorId) {
+    let loggedInUserId;
+
+    if (localStorage.getItem('userInfo') != null) {
+      loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+    }
+
+    if (authorId == loggedInUserId) {
+      window.location = `./profile.html?userId=${loggedInUserId}`
+    } else {
+      window.location = `./profile.html?userId=${authorId}`
+    }
+  }
+
+  // Show Alert Function //-- Using bootStrap Colors
+  function showAlert(message, color) {
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+    const alert = (message, type) => {
+      const wrapper = document.createElement('div')
+      wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+      ].join('')
+
+      alertPlaceholder.append(wrapper)
+    }
+
+    alert(message, color)
+
 
     setTimeout(() => {
-      window.location.reload()
-    }, 900);
-  
-  } catch (error) {
-    let msg = error.response.data.message
-    showAlert(msg,'danger')
+      alertPlaceholder.innerHTML = ''
+    }, 3000);
+
   }
-}
-
-
-function goToProfilePage(authorId){
-  let loggedInUserId  ;
-
-  if (localStorage.getItem('userInfo') != null ){
-    loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
-  }
-
-  if (authorId == loggedInUserId){
-    window.location = `./profile.html?userId=${loggedInUserId}`
-  }else{
-    window.location = `./profile.html?userId=${authorId}`
-  }
-}
-
-// Show Alert Function //-- Using bootStrap Colors
-function showAlert(message,color){
-  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-  alert(message,color)
-
-
-  setTimeout(() => {
-    alertPlaceholder.innerHTML = ''
-  },3000);
-
-}
 
 </script>
 

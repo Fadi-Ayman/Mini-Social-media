@@ -10,18 +10,18 @@ main.getPosts(postId)
 main.setupUi()
 
 // Login Functionality
-document.getElementById('login-login').addEventListener('click',main.Login)
+document.getElementById('login-login').addEventListener('click', main.Login)
 
 // Logout Functionality
-document.getElementById('logout-btn').addEventListener('click',main.Logout)
+document.getElementById('logout-btn').addEventListener('click', main.Logout)
 
 // Register Functionality
-document.getElementById('register-register').addEventListener('click',main.Register)
+document.getElementById('register-register').addEventListener('click', main.Register)
 
 // Add Comment
 try {
-    document.getElementById('Send-comment').addEventListener('click',main.newComment,postId)
+    document.getElementById('Send-comment').addEventListener('click', main.newComment, postId)
 } catch (error) {
-    
+
 }
 

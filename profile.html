@@ -17,7 +17,7 @@
 
 <body class="bg-body-secondary">
 
-  
+
   <!-- Alerts -->
 
   <div class="alert-box fade show " id="liveAlertPlaceholder"></div>
@@ -85,12 +85,12 @@
             <!-- Username Input -->
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">UserName:</label>
-              <input type="text" class="form-control" id="login-username" required  />
+              <input type="text" class="form-control" id="login-username" required />
             </div>
             <!-- PassWord Input -->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Password:</label>
-              <input  type="password" class="form-control" id="login-password" required />
+              <input type="password" class="form-control" id="login-password" required />
             </div>
           </form>
         </div>
@@ -104,7 +104,8 @@
   </div>
 
   <!-- Create A new Post Btn -->
-  <button id="new-post-btn" type="button" class="btn btn-primary rounded-circle fs-3  " data-bs-toggle="modal" data-bs-target="#create-post-modal"> + </button>
+  <button id="new-post-btn" type="button" class="btn btn-primary rounded-circle fs-3  " data-bs-toggle="modal"
+    data-bs-target="#create-post-modal"> + </button>
 
   <!-- Create a New Post Modal -->
   <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,7 +137,8 @@
         </div>
         <div class="modal-footer">
           <!-- Create New Post btns -->
-          <button id="create-new-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close </button>
+          <button id="create-new-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close
+          </button>
           <button id="create-new-post-create" type="button" class="btn btn-primary  "> Create </button>
         </div>
       </div>
@@ -211,40 +213,48 @@
       <!-- Home And Profile -->
       <div class="home-profile d-flex gap-0 p-lg-2 justify-content-between  align-items-center">
         <a class="btns fs-6 text-decoration-none text-black p-2 rounded-2" href="index.html">Home</a>
-        <a  id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2"  >Profile</a>
+        <a id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2">Profile</a>
       </div>
 
       <!-- Login And Register Btns -->
       <div class="login-register d-flex gap-3">
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"data-bs-whatever="@mdo"> Login </button>
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"data-bs-whatever="@mdo"> Register </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"
+          data-bs-whatever="@mdo"> Login </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"
+          data-bs-whatever="@mdo"> Register </button>
       </div>
 
       <!-- Profile Picture And Logout Btn -->
-        <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
-          <img class="profile-img" src="images/profile1.jpg" >
-          <p class="m-0 fs-5 profile-name" > @Fady </p>
-          <button id="logout-btn" class="btn btn-danger  " >Logout</button>
-        </div>
+      <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
+        <img class="profile-img" src="images/profile1.jpg">
+        <p class="m-0 fs-5 profile-name"> @Fady </p>
+        <button id="logout-btn" class="btn btn-danger  ">Logout</button>
+      </div>
 
     </nav>
     <!-- End Of NavBar  -->
 
 
     <!-- Profile Info -->
-    <div class="profile-info d-flex justify-content-evenly align-items-center gap-3 mb-5 bg-light shadow rounded-3 py-4 px-4   ">
+    <div
+      class="profile-info d-flex justify-content-evenly align-items-center gap-3 mb-5 bg-light shadow rounded-3 py-4 px-4   ">
       <!-- Profile Picutre -->
-      <img class="profile-details-img border-primary   " style="width: 100px;height: 100px;" src="./images/profile1.jpg" alt="">
+      <img class="profile-details-img border-primary   " style="width: 100px;height: 100px;" src="./images/profile1.jpg"
+        alt="">
       <!-- Profile Data Information -->
       <div class="profile-data d-flex flex-column justify-content-center align-items-center ">
-      <p class=" infoo fs-6 fw-bold profile-details-name" >  ...............  </p>
-        <p class=" infoo fs-6 fw-bold profile-details-username" >  ...............   </p>
-        <p class=" infoo fs-6 fw-bold profile-details-email" >     ...............      </p>
+        <p class=" infoo fs-6 fw-bold profile-details-name"> ............... </p>
+        <p class=" infoo fs-6 fw-bold profile-details-username"> ............... </p>
+        <p class=" infoo fs-6 fw-bold profile-details-email"> ............... </p>
       </div>
       <!--  Posts and Comments Count  -->
-      <div class="posts-count d-flex flex-column justify-content-center align-items-center  " >
-        <p class=" p-counts fs-1 flex  fw-lighter profile-posts-count d-flex flex-column justify-content-center align-items-center " > ... <small class="fs-6 text-secondary   ">Posts</small> </p>
-        <p class=" p-counts fs-1 flex  fw-lighter profile-comment-count d-flex flex-column justify-content-center align-items-center  " > ... <small class="fs-6 text-secondary   ">Comments</small> </p>
+      <div class="posts-count d-flex flex-column justify-content-center align-items-center  ">
+        <p
+          class=" p-counts fs-1 flex  fw-lighter profile-posts-count d-flex flex-column justify-content-center align-items-center ">
+          ... <small class="fs-6 text-secondary   ">Posts</small> </p>
+        <p
+          class=" p-counts fs-1 flex  fw-lighter profile-comment-count d-flex flex-column justify-content-center align-items-center  ">
+          ... <small class="fs-6 text-secondary   ">Comments</small> </p>
       </div>
 
     </div>
@@ -252,13 +262,13 @@
 
 
     <!-- My Post Title -->
-    <p class="fs-1 owner-title" >My Posts</p>
+    <p class="fs-1 owner-title">My Posts</p>
 
     <!-- Main Content (Posts) Post-Section -->
     <main class="mt-5 d-flex justify-content-center align-items-center posts-container gap-5 flex-column">
 
-    <!-- Posts Will Push Here  -->
-    No Posts Yet
+      <!-- Posts Will Push Here  -->
+      No Posts Yet
 
     </main>
     <!-- End Of Post Section -->
@@ -274,16 +284,16 @@
 
   // This Function Will Duplicated in all Html Pages
   // Get Post Details 
-  function getPostDetails(postObject,btnClicked){
+  function getPostDetails(postObject, btnClicked) {
     let post = JSON.parse(decodeURIComponent(postObject))
     let type = btnClicked.dataset.type
     let deleteModalInp = document.getElementById('delete-post-id-inp')
     let editModalInp = document.getElementById('edit-post-id-inp')
 
-    if (type == 'delete'){
+    if (type == 'delete') {
       deleteModalInp.value = post.id
 
-    }else{
+    } else {
       let editTitleInp = document.getElementById('edit-post-title-inp')
       let editBodyInp = document.getElementById('edit-post-body-inp')
 
@@ -295,25 +305,25 @@
   }
 
   // Go Post Page Function
-  function goPostPage(postId){
-  const postUrl = `post-page.html?postId=${postId}`
-  window.location = postUrl
-}
-
-// Put UserId in Url as Param When go to his profile
-function goToProfilePage(authorId){
-  let loggedInUserId  ;
-
-  if (localStorage.getItem('userInfo') != null ){
-    loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+  function goPostPage(postId) {
+    const postUrl = `post-page.html?postId=${postId}`
+    window.location = postUrl
   }
 
-  if (authorId == loggedInUserId){
-    window.location = `./profile.html?userId=${loggedInUserId}`
-  }else{
-    window.location = `./profile.html?userId=${authorId}`
+  // Put UserId in Url as Param When go to his profile
+  function goToProfilePage(authorId) {
+    let loggedInUserId;
+
+    if (localStorage.getItem('userInfo') != null) {
+      loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+    }
+
+    if (authorId == loggedInUserId) {
+      window.location = `./profile.html?userId=${loggedInUserId}`
+    } else {
+      window.location = `./profile.html?userId=${authorId}`
+    }
   }
-}
 
 
 </script>

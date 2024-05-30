@@ -4,8 +4,8 @@ const baseUrl = 'https://tarmeezacademy.com/api/v1'
 const noImage = './images/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg'
 const noUser = 'images/NoUser.jpg'
 let pageNumber = 2;
-let loggedInUserId ;
-if (localStorage.getItem('userInfo') != null){
+let loggedInUserId;
+if (localStorage.getItem('userInfo') != null) {
   loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id;
 }
 
@@ -17,7 +17,7 @@ let postContainer = document.querySelector('.posts-container')
 //                                                 Async Functions
 
 // Get Posts Function
-export async function getPosts( queryParamValue = 1 ){
+export async function getPosts(queryParamValue = 1) {
   // Pathnames vars
   let postPagePathname = '/post-page.html'
   let homePagePathname = '/index.html'
@@ -31,25 +31,25 @@ export async function getPosts( queryParamValue = 1 ){
   let url;
   let addComment = ''
   let postId;
-  let loggedInUserId ;
-  let USERID ;
+  let loggedInUserId;
+  let USERID;
 
 
-  if (window.location.pathname == profilePagePathname){
+  if (window.location.pathname == profilePagePathname) {
     let urlParams = new URLSearchParams(window.location.search)
     let userId = urlParams.get('userId')
-    queryParamValue =  userId
+    queryParamValue = userId
     USERID = userId
     url = `${baseUrl}/users/${queryParamValue}/posts`
-  }else if(window.location.pathname == postPagePathname){
+  } else if (window.location.pathname == postPagePathname) {
     // Get Post Id From URL
     const urlSearchParams = new URLSearchParams(window.location.search)
     postId = urlSearchParams.get('postId')
-    queryParamValue =  postId
+    queryParamValue = postId
     USERID = postId
     url = `${baseUrl}/posts/${queryParamValue}`
-  
-  }else{
+
+  } else {
     url = `${baseUrl}/posts?page=${queryParamValue}`
   }
 
@@ -58,15 +58,15 @@ export async function getPosts( queryParamValue = 1 ){
   let jsonObj = await response.data
   let posts = jsonObj.data
 
-  let isLogedIn = localStorage.getItem('userInfo') == null ? false : true ;
+  let isLogedIn = localStorage.getItem('userInfo') == null ? false : true;
   let userInfo;
 
-  if (isLogedIn){
+  if (isLogedIn) {
     userInfo = JSON.parse(localStorage.getItem('userInfo'))
     loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
 
-    if(window.location.pathname == postPagePathname){
-      addComment =`
+    if (window.location.pathname == postPagePathname) {
+      addComment = `
         <div class="d-flex align-items-center gap-3 mb-3  mr-2 add-comment-section">
         <img  class="profile-img  "  src="${userInfo.profile_image}" >
         <p class="comment-auther mb-0 fw-bold  " >${userInfo.name}</p>
@@ -84,39 +84,39 @@ export async function getPosts( queryParamValue = 1 ){
   // End Sending Request And isLogin Validate
 
 
-  if (window.location.pathname == homePagePathname || window.location.pathname == '/'){
+  if (window.location.pathname == homePagePathname || window.location.pathname == '/') {
 
-    if( scrollY < bodyHeight - 200 ){
+    if (scrollY < bodyHeight - 200) {
       postContainer.innerHTML = ''
     }
 
-    for (let post of posts){
+    for (let post of posts) {
       // Check Variables
       let postSettings = '';
       let isMyPost;
-  
-      if (post.image instanceof Object){
+
+      if (post.image instanceof Object) {
         post.image = noImage
       }
-  
-      if(post.author.profile_image instanceof Object){
+
+      if (post.author.profile_image instanceof Object) {
         post.author.profile_image = noUser
       }
-  
-      if(isLogedIn){
-        isMyPost = userInfo.id == post.author.id ? true :false;
-        if(isMyPost){
-  
+
+      if (isLogedIn) {
+        isMyPost = userInfo.id == post.author.id ? true : false;
+        if (isMyPost) {
+
           postSettings = `      
             <div class="post-settings">
               <button id="edit-post-btn" data-type="edit" onclick="getPostDetails('${encodeURIComponent(JSON.stringify(post))}',this)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-modal"> Edit </button>
               <button id="delete-post-btn" data-type="delete" onclick="getPostDetails('${encodeURIComponent(JSON.stringify(post))}',this)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"> Delete </button>
             </div>
-            ` 
+            `
         }
       }
-  
-  
+
+
       let postContent = `
       <div class="card post-card shadow" >
       <!-- Post Header -->
@@ -164,15 +164,15 @@ export async function getPosts( queryParamValue = 1 ){
       <!-- End Post Body -->
     </div>
       `
-  
+
       postContainer.innerHTML += postContent
-  
+
     }
 
 
 
 
-  }else if(window.location.pathname == postPagePathname){
+  } else if (window.location.pathname == postPagePathname) {
     // User Post
     let post = posts
     let postComments = post.comments
@@ -180,8 +180,8 @@ export async function getPosts( queryParamValue = 1 ){
 
 
     // Add Comments If Exists
-    for ( let i = 0 ; i < postComments.length ; i ++){
-      if (postComments[0] != undefined){
+    for (let i = 0; i < postComments.length; i++) {
+      if (postComments[0] != undefined) {
         comments += `
         <!-- Comment Start -->
         <div class="comment d-flex align-items-center gap-3 py-2  " >
@@ -199,17 +199,17 @@ export async function getPosts( queryParamValue = 1 ){
     let postSettings = '';
     let isMyPost;
 
-    if (post.image instanceof Object){
+    if (post.image instanceof Object) {
       post.image = noImage
     }
 
-    if(post.author.profile_image instanceof Object){
+    if (post.author.profile_image instanceof Object) {
       post.author.profile_image = noUser
     }
 
-    if(isLogedIn){
-      isMyPost = userInfo.id == post.author.id ? true :false;
-      if(isMyPost){
+    if (isLogedIn) {
+      isMyPost = userInfo.id == post.author.id ? true : false;
+      if (isMyPost) {
 
         // postSettings = `      
         //   <div class="post-settings">
@@ -288,68 +288,68 @@ export async function getPosts( queryParamValue = 1 ){
     `
 
 
-  }else{
+  } else {
 
     // Get UserDetails Using CallBack Funcrion Inside GetPosts Function
     let userDetails = await getUserdetails(USERID)
-    
+
     // Vars
-    let commentsCount = 0 ;
+    let commentsCount = 0;
     // Validate if no Profile Image
-    if (userDetails.profile_image instanceof Object){
+    if (userDetails.profile_image instanceof Object) {
       userDetails.profile_image = noUser
     }
 
 
     // Setting Profile Details
-    document.querySelector('.profile-details-img').src = userDetails.profile_image ;
-    document.querySelector('.profile-details-name').innerHTML = userDetails.name || 'No Name' ;
-    document.querySelector('.profile-details-username').innerHTML= userDetails.username || 'No UserName';
-    document.querySelector('.profile-details-email').innerHTML = userDetails.email || 'No Email' ;
-    document.querySelector('.profile-posts-count').innerHTML = ` ${userDetails.posts_count || 0} <small class="fs-6 text-secondary ">Posts</small> ` ;
+    document.querySelector('.profile-details-img').src = userDetails.profile_image;
+    document.querySelector('.profile-details-name').innerHTML = userDetails.name || 'No Name';
+    document.querySelector('.profile-details-username').innerHTML = userDetails.username || 'No UserName';
+    document.querySelector('.profile-details-email').innerHTML = userDetails.email || 'No Email';
+    document.querySelector('.profile-posts-count').innerHTML = ` ${userDetails.posts_count || 0} <small class="fs-6 text-secondary ">Posts</small> `;
 
-    if (isLogedIn){
-      if (userDetails.name == userInfo.name){
-        document.querySelector('.owner-title').innerHTML = `My Posts` ;
-      }else{
-        document.querySelector('.owner-title').innerHTML = `${userDetails.name}'s Posts` || `${userDetails.username} Posts`  ;
+    if (isLogedIn) {
+      if (userDetails.name == userInfo.name) {
+        document.querySelector('.owner-title').innerHTML = `My Posts`;
+      } else {
+        document.querySelector('.owner-title').innerHTML = `${userDetails.name}'s Posts` || `${userDetails.username} Posts`;
       }
-    }else{
-      document.querySelector('.owner-title').innerHTML = `${userDetails.name}'s Posts` || `${userDetails.username} Posts`  ;
+    } else {
+      document.querySelector('.owner-title').innerHTML = `${userDetails.name}'s Posts` || `${userDetails.username} Posts`;
     }
 
     posts.reverse()
 
     postContainer.innerHTML = ''
 
-    for (let post of posts){
+    for (let post of posts) {
 
       // Check Variables
       let postSettings = '';
       let isMyPost;
-  
-      if (post.image instanceof Object){
+
+      if (post.image instanceof Object) {
         post.image = noImage
       }
-  
-      if(post.author.profile_image instanceof Object){
+
+      if (post.author.profile_image instanceof Object) {
         post.author.profile_image = noUser
       }
-  
-      if(isLogedIn){
-        isMyPost = userInfo.id == post.author.id ? true :false;
-        if(isMyPost){
-  
+
+      if (isLogedIn) {
+        isMyPost = userInfo.id == post.author.id ? true : false;
+        if (isMyPost) {
+
           postSettings = `      
             <div class="post-settings">
               <button id="edit-post-btn" data-type="edit" onclick="getPostDetails('${encodeURIComponent(JSON.stringify(post))}',this)" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-modal"> Edit </button>
               <button id="delete-post-btn" data-type="delete" onclick="getPostDetails('${encodeURIComponent(JSON.stringify(post))}',this)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"> Delete </button>
             </div>
-            ` 
+            `
         }
       }
-  
-  
+
+
       let postContent = `
       <div class="card post-card shadow" >
       <!-- Post Header -->
@@ -397,12 +397,12 @@ export async function getPosts( queryParamValue = 1 ){
       <!-- End Post Body -->
     </div>
       `
-  
+
       postContainer.innerHTML += postContent
       commentsCount += +post.comments_count
-  
+
     }
-    document.querySelector('.profile-comment-count').innerHTML = ` ${commentsCount || 0} <small class="fs-6 text-secondary ">Comments</small> ` ;
+    document.querySelector('.profile-comment-count').innerHTML = ` ${commentsCount || 0} <small class="fs-6 text-secondary ">Comments</small> `;
 
 
 
@@ -412,26 +412,26 @@ export async function getPosts( queryParamValue = 1 ){
 }
 
 // Login Function
-export async function Login(){
-  
+export async function Login() {
+
   let url = `${baseUrl}/login`
 
   let username = document.getElementById('login-username').value
   let password = document.getElementById('login-password').value
 
   let params = {
-    'username' : username,
-    'password' : password,
+    'username': username,
+    'password': password,
   }
 
   let config = {
-    'headers' : {
-      'Content-Type' : 'application/json'
+    'headers': {
+      'Content-Type': 'application/json'
     }
   }
 
   try {
-    let response = await axios.post(url,params,config)
+    let response = await axios.post(url, params, config)
     let data = await response.data
 
     localStorage.setItem('token', data.token)
@@ -443,19 +443,19 @@ export async function Login(){
 
     getPosts()
     setupUi()
-    
-      loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+
+    loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
 
   } catch (error) {
 
     let msg = error.response.data.message
-    
-    showAlert(msg,'danger')
+
+    showAlert(msg, 'danger')
   }
 }
 
 // Logout 
-export function Logout(){
+export function Logout() {
   localStorage.clear()
   setupUi()
   getPosts()
@@ -463,14 +463,14 @@ export function Logout(){
 }
 
 // Register Function
-export async function Register(){
+export async function Register() {
 
   const url = `${baseUrl}/register`;
   const headers = {
-      'Content-Type' : 'multipart/form-data',
-      'Accept'       : 'multipart/form-data'
-    }
-  
+    'Content-Type': 'multipart/form-data',
+    'Accept': 'multipart/form-data'
+  }
+
 
   let name = document.getElementById('register-name').value;
   let username = document.getElementById('register-username').value;
@@ -479,52 +479,52 @@ export async function Register(){
   let image = document.getElementById('register-image').files[0];
 
   const params = new FormData()
-  params.append('username',username)
-  params.append('password',password)
-  params.append('image',image)
-  params.append('name',name)
-  params.append('email',email)
+  params.append('username', username)
+  params.append('password', password)
+  params.append('image', image)
+  params.append('name', name)
+  params.append('email', email)
 
-try {
-  
-  let response = await axios.post(url,params,headers)
+  try {
 
-  let data = await response.data
+    let response = await axios.post(url, params, headers)
 
-  localStorage.setItem('token', data.token)
-  localStorage.setItem('userInfo',JSON.stringify(data.user))
+    let data = await response.data
 
-
-  document.getElementById('register-close').click()
-
-  showAlert("Registered Successfully", "success")
-
-  getPosts()
-  setupUi()
-
-  loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+    localStorage.setItem('token', data.token)
+    localStorage.setItem('userInfo', JSON.stringify(data.user))
 
 
+    document.getElementById('register-close').click()
 
-} catch (error) {
+    showAlert("Registered Successfully", "success")
 
-  let msg = error.response.data.message
+    getPosts()
+    setupUi()
 
-  showAlert(msg,'danger')
+    loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
 
-}
+
+
+  } catch (error) {
+
+    let msg = error.response.data.message
+
+    showAlert(msg, 'danger')
+
+  }
 }
 
 // Create A New Post
-export async function createNewPost(){
+export async function createNewPost() {
 
   let url = `${baseUrl}/posts`
   let token = localStorage.getItem('token')
 
   let config = {
-    headers : {
-      'Content-Type'  : 'multipart/form-data',
-      'Authorization' : `Bearer ${token}`,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${token}`,
     }
   }
 
@@ -534,48 +534,48 @@ export async function createNewPost(){
 
 
   let params = new FormData()
-  params.append('title',title)
-  params.append('body',body)
-  params.append('image',image)
+  params.append('title', title)
+  params.append('body', body)
+  params.append('image', image)
 
 
   try {
-    
-    let response = await axios.post(url,params,config)
+
+    let response = await axios.post(url, params, config)
 
     let data = await response.data
     getPosts()
-    showAlert('The Post Created Successfully','success')
+    showAlert('The Post Created Successfully', 'success')
     document.getElementById('create-new-post-close').click()
 
     title = ''
     body = ''
-    
+
 
 
   } catch (error) {
-    
+
     let msg = error.response.data.message
 
-    showAlert(msg,'danger')
+    showAlert(msg, 'danger')
 
   }
 
 }
 
 // Delete Post Function
-export async function deletePost(){
+export async function deletePost() {
   let deletedPostId = document.getElementById('delete-post-id-inp').value
   let url = `${baseUrl}/posts/${deletedPostId}`
   let token = localStorage.getItem('token')
 
   try {
-    
-    let response = await axios.delete(url,{
-      'headers' : {
-        'Authorization' : `Bearer ${token}`
+
+    let response = await axios.delete(url, {
+      'headers': {
+        'Authorization': `Bearer ${token}`
       }
-      
+
     })
 
     document.getElementById('delete-post-close').click()
@@ -586,13 +586,13 @@ export async function deletePost(){
   } catch (error) {
 
     msg = error.response.data.message
-    showAlert(msg,'danger')
+    showAlert(msg, 'danger')
   }
 
-}  
+}
 
 // Edit Post Function
-export async function updatePost(){
+export async function updatePost() {
 
   let postId = document.getElementById('edit-post-id-inp').value
   let url = `${baseUrl}/posts/${postId}`
@@ -600,9 +600,9 @@ export async function updatePost(){
   let formData = new FormData()
 
   let config = {
-    "headers" : {
-      'Content-Type'  : 'multipart/form-data',
-      'Authorization' : `Bearer ${token}`
+    "headers": {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${token}`
     }
   }
 
@@ -611,16 +611,16 @@ export async function updatePost(){
   let editImageInp = document.getElementById('edit-post-image-inp').files[0]
 
 
-  formData.append('title',editTitleInp)
-  formData.append('body',editBodyInp)
-  formData.append('image',editImageInp)
-  formData.append('_method','put')
+  formData.append('title', editTitleInp)
+  formData.append('body', editBodyInp)
+  formData.append('image', editImageInp)
+  formData.append('_method', 'put')
 
 
   try {
 
-    let response = await axios.post(url,formData,config)
-    
+    let response = await axios.post(url, formData, config)
+
     getPosts()
     document.getElementById('edit-post-close').click()
     showAlert('The Post Has Been Updated Successfully', 'success')
@@ -630,17 +630,17 @@ export async function updatePost(){
 
 
   } catch (error) {
-    
+
     const msg = error.response.data.message
-    showAlert(msg,'danger')
+    showAlert(msg, 'danger')
   }
 
 }
 
 // Get A Specific User Details 
-async function getUserdetails(userId){
+async function getUserdetails(userId) {
   let url = `${baseUrl}/users/${userId}`
-  
+
   let response = await axios.get(url)
   let userDetails = response.data.data
 
@@ -654,79 +654,79 @@ async function getUserdetails(userId){
 
 
 // Put UserId in Url as Param When go to his profile
-function goToProfilePage(authorId){
+function goToProfilePage(authorId) {
 
-  if (authorId == loggedInUserId){
+  if (authorId == loggedInUserId) {
     window.location = `./profile.html?userId=${loggedInUserId}`
-  }else{
+  } else {
     window.location = `./profile.html?userId=${authorId}`
   }
-  }
+}
 
 // Profile Page Event
-document.getElementById("profile-page").addEventListener('click', ()=>{
+document.getElementById("profile-page").addEventListener('click', () => {
   goToProfilePage(loggedInUserId)
 })
 // End Profile page Event
 
 
 // Show Alert Function //-- Using bootStrap Colors
-function showAlert(message,color){
+function showAlert(message, color) {
   const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
+  const alert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
 
-  alertPlaceholder.append(wrapper)
-}
+    alertPlaceholder.append(wrapper)
+  }
 
-  alert(message,color)
+  alert(message, color)
 
 
   setTimeout(() => {
     alertPlaceholder.innerHTML = ''
-  },3000);
+  }, 3000);
 
 }
 
 // Infinte Scroll Function
-export function infiniteScroll(){
+export function infiniteScroll() {
   let scrollY = Math.floor(window.scrollY)
   let bodyHeight = Math.floor(document.body.scrollHeight - 766)
 
-  if( scrollY > bodyHeight - 200 ){
+  if (scrollY > bodyHeight - 200) {
     getPosts(pageNumber)
     pageNumber++
 
-    window.removeEventListener('scroll',infiniteScroll)
-    
+    window.removeEventListener('scroll', infiniteScroll)
+
     setTimeout(() => {
-      window.addEventListener('scroll',infiniteScroll)
+      window.addEventListener('scroll', infiniteScroll)
     }, 1000);
   }
 }
 
 // SetupUi 
-export function setupUi(){
+export function setupUi() {
 
-  if(localStorage.getItem('token') != null){
+  if (localStorage.getItem('token') != null) {
     // User Is Logged In
     // Show & Hide btns
-    document.querySelector('.login-register').style.setProperty('display','none' ,'important')
-    document.querySelector('.logout-profilePic').style.setProperty('display','flex' ,'important')
-    document.getElementById('profile-page').style.setProperty('display','flex' ,'important')
+    document.querySelector('.login-register').style.setProperty('display', 'none', 'important')
+    document.querySelector('.logout-profilePic').style.setProperty('display', 'flex', 'important')
+    document.getElementById('profile-page').style.setProperty('display', 'flex', 'important')
 
 
     try {
-      document.getElementById('new-post-btn').style.setProperty('display','block' ,'important')
+      document.getElementById('new-post-btn').style.setProperty('display', 'block', 'important')
     } catch (error) {
-      
+
     }
 
     // Setting Profile Information in navBar
@@ -735,18 +735,18 @@ export function setupUi(){
     document.querySelector('.profile-name').innerHTML = userInfo.name
 
 
-  }else{
+  } else {
     // User Is Logged Out
     // Show & Hide btns
-    document.querySelector('.logout-profilePic').style.setProperty('display', 'none' ,'important')
-    document.querySelector('.login-register').style.setProperty('display', 'flex' ,'important')
-    document.getElementById('profile-page').style.setProperty('display','none' ,'important')
+    document.querySelector('.logout-profilePic').style.setProperty('display', 'none', 'important')
+    document.querySelector('.login-register').style.setProperty('display', 'flex', 'important')
+    document.getElementById('profile-page').style.setProperty('display', 'none', 'important')
 
 
     try {
-      document.getElementById('new-post-btn').style.setProperty('display','none' ,'important')
+      document.getElementById('new-post-btn').style.setProperty('display', 'none', 'important')
     } catch (error) {
-      
+
     }
 
   }
@@ -756,20 +756,3 @@ export function setupUi(){
 
 
 
-// if (window.location.pathname == profilePagePathname){
-//   let urlParams = new URLSearchParams(window.location.search)
-//   let userId = urlParams.get('userId')
-//   queryParamValue =  userId
-//   USERID = userId
-//   url = `${baseUrl}/users/${queryParamValue}/posts`
-// }else if(window.location.pathname == postPagePathname){
-//   // Get Post Id From URL
-//   const urlSearchParams = new URLSearchParams(window.location.search)
-//   postId = urlSearchParams.get('postId')
-//   queryParamValue =  postId
-//   USERID = postId
-//   url = `${baseUrl}/posts/${queryParamValue}`
-
-// }else{
-//   url = `${baseUrl}/posts?page=${queryParamValue}`
-// }

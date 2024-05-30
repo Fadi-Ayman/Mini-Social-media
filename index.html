@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  
-<!-- Axios lib -->
+
+  <!-- Axios lib -->
   <script src="./node_modules/axios/dist/axios.js"></script>
-<!-- StyleSheets -->
+  <!-- StyleSheets -->
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="Css/Main.css" />
 </head>
@@ -83,12 +83,12 @@
             <!-- Username Input -->
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">UserName:</label>
-              <input type="text" class="form-control" id="login-username" required  />
+              <input type="text" class="form-control" id="login-username" required />
             </div>
             <!-- PassWord Input -->
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Password:</label>
-              <input  type="password" class="form-control" id="login-password" required />
+              <input type="password" class="form-control" id="login-password" required />
             </div>
           </form>
         </div>
@@ -102,7 +102,8 @@
   </div>
 
   <!-- Create A new Post Btn -->
-  <button id="new-post-btn" type="button" class="btn btn-primary rounded-circle fs-3  " data-bs-toggle="modal" data-bs-target="#create-post-modal"> + </button>
+  <button id="new-post-btn" type="button" class="btn btn-primary rounded-circle fs-3  " data-bs-toggle="modal"
+    data-bs-target="#create-post-modal"> + </button>
 
   <!-- Create a New Post Modal -->
   <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -134,7 +135,8 @@
         </div>
         <div class="modal-footer">
           <!-- Create New Post btns -->
-          <button id="create-new-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close </button>
+          <button id="create-new-post-close" type="button" class="btn btn-danger " data-bs-dismiss="modal"> Close
+          </button>
           <button id="create-new-post-create" type="button" class="btn btn-primary  "> Create </button>
         </div>
       </div>
@@ -208,21 +210,23 @@
       <!-- Home And Profile -->
       <div class="home-profile d-flex gap-0 p-lg-2 justify-content-between  align-items-center">
         <a class="btns fs-6 text-decoration-none text-black p-2 rounded-2" href="index.html">Home</a>
-        <a  id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2"  >Profile</a>
+        <a id="profile-page" class=" btns fs-6 text-decoration-none text-black p-2 rounded-2">Profile</a>
       </div>
 
       <!-- Login And Register Btns -->
       <div class="login-register d-flex gap-3">
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"data-bs-whatever="@mdo"> Login </button>
-        <button  type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"data-bs-whatever="@mdo"> Register </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#login-modal"
+          data-bs-whatever="@mdo"> Login </button>
+        <button type="button" class="btn btn-outline-success  " data-bs-toggle="modal" data-bs-target="#register-modal"
+          data-bs-whatever="@mdo"> Register </button>
       </div>
 
       <!-- Profile Picture And Logout Btn -->
-        <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
-          <img class="profile-img" src="images/profile1.jpg" >
-          <p class="m-0 fs-5 profile-name" > Fadi </p>
-          <button id="logout-btn" class="btn btn-danger  " >Logout</button>
-        </div>
+      <div class="logout-profilePic d-flex gap-1 align-items-center justify-content-between  m-0">
+        <img class="profile-img" src="images/profile1.jpg">
+        <p class="m-0 fs-5 profile-name"> Fadi </p>
+        <button id="logout-btn" class="btn btn-danger  ">Logout</button>
+      </div>
 
     </nav>
     <!-- End Of NavBar  -->
@@ -242,24 +246,24 @@
 
 
   <script type="module" src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="./JS/mainLogic.js" ></script>
-  <script type="module" src="./JS/home.js" ></script>
+  <script type="module" src="./JS/mainLogic.js"></script>
+  <script type="module" src="./JS/home.js"></script>
 
 </body>
 
 <script>
   // This Function Will Duplicated in all Html Pages
   // Get Post Details 
-  function getPostDetails(postObject,btnClicked){
+  function getPostDetails(postObject, btnClicked) {
     let post = JSON.parse(decodeURIComponent(postObject))
     let type = btnClicked.dataset.type
     let deleteModalInp = document.getElementById('delete-post-id-inp')
     let editModalInp = document.getElementById('edit-post-id-inp')
 
-    if (type == 'delete'){
+    if (type == 'delete') {
       deleteModalInp.value = post.id
 
-    }else{
+    } else {
       let editTitleInp = document.getElementById('edit-post-title-inp')
       let editBodyInp = document.getElementById('edit-post-body-inp')
 
@@ -271,25 +275,25 @@
   }
 
   // Go Post Page Function
-  function goPostPage(postId){
-  const postUrl = `post-page.html?postId=${postId}`
-  window.location = postUrl
-}
-
-// Put UserId in Url as Param When go to his profile
-function goToProfilePage(authorId){
-  let loggedInUserId  ;
-
-  if (localStorage.getItem('userInfo') != null ){
-    loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+  function goPostPage(postId) {
+    const postUrl = `post-page.html?postId=${postId}`
+    window.location = postUrl
   }
 
-  if (authorId == loggedInUserId){
-    window.location = `./profile.html?userId=${loggedInUserId}`
-  }else{
-    window.location = `./profile.html?userId=${authorId}`
+  // Put UserId in Url as Param When go to his profile
+  function goToProfilePage(authorId) {
+    let loggedInUserId;
+
+    if (localStorage.getItem('userInfo') != null) {
+      loggedInUserId = JSON.parse(localStorage.getItem('userInfo')).id
+    }
+
+    if (authorId == loggedInUserId) {
+      window.location = `./profile.html?userId=${loggedInUserId}`
+    } else {
+      window.location = `./profile.html?userId=${authorId}`
+    }
   }
-}
 
 
 </script>
